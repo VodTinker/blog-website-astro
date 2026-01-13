@@ -12,7 +12,7 @@ pinned: false
 
 La Inteligencia Artificial no es una tecnología nueva. Ya en **1950**, Alan Turing en su paper "Computing Machinery and Intelligence" propuso la **Prueba de Turing**, un test para determinar si una máquina puede ser considerada inteligente.
 
-Pero entonces, **¿qué son ChatGPT, Grok, Gemini y Claude?** Primero hay que entender que la IA moderna se basa en **Machine Learning** y **Deep Learning**, campos que han evolucionado dramáticamente en las últimas décadas.
+Pero entonces, **¿qué son ChatGPT, Grok, Gemini y Claude?** Primero hay que entender que la IA moderna se basa en **Machine Learning** y **Deep Learning**, campos que han evolucionado dramáticamente en las últimas décadas.![alt text](image.png)
 
 ## Conceptos Básicos
 
