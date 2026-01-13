@@ -8,17 +8,21 @@ draft: false
 pinned: false
 ---
 
-# Inteligencia Artificial: De los Fundamentos a las Arquitecturas Modernas 🤖
+# Inteligencia Artificial: De los Fundamentos a las Arquitecturas Modernas
 
 La Inteligencia Artificial no es una tecnología nueva. Ya en **1950**, Alan Turing en su paper "Computing Machinery and Intelligence" propuso la **Prueba de Turing**, un test para determinar si una máquina puede ser considerada inteligente.
 
 Pero entonces, **¿qué son ChatGPT, Grok, Gemini y Claude?** Primero hay que entender que la IA moderna se basa en **Machine Learning** y **Deep Learning**, campos que han evolucionado dramáticamente en las últimas décadas.
 
-## 📚 Conceptos Básicos
+## Conceptos Básicos
 
 ### Tipos de IA
 
 - **IA General (AGI)**: Capaz de realizar cualquier tarea cognitiva que un ser humano pueda hacer. Aún no existe.
+
+
+> Sam Altman; fundador de OpenAI; ha estado hablando de que la IA General es el objetivo final de su empresa, pero actualmente estamos lejos de conseguirla a pesar de los trillones de dólares invertidos en la empresa.
+
 - **IA Especializada (Narrow AI)**: Diseñada para realizar tareas específicas con alto nivel de eficiencia. Es lo que usamos hoy.
 - **IA Supervisada**: Aprende de datos etiquetados para predecir resultados específicos.
 - **IA No Supervisada**: Aprende de datos no etiquetados para encontrar patrones ocultos.
@@ -28,18 +32,30 @@ Pero entonces, **¿qué son ChatGPT, Grok, Gemini y Claude?** Primero hay que en
 - **Asistentes Virtuales**: ChatGPT, Claude, Gemini - Chatbots que responden preguntas y realizan tareas complejas.
 - **Sistemas de Recomendación**: Netflix, Spotify, Amazon - Sugieren contenido personalizado.
 - **Análisis de Datos**: IA que procesa grandes volúmenes de información para extraer insights valiosos.
-- **Generación de Código**: GitHub Copilot, CodeLlama - Asisten en programación.
+- **Generación de Código**: GitHub Copilot, CodeLlama, Claude Code, DeepSeek Code - Asisten en programación, son los llamados "agentes de programación IA".
 
 ---
 
-## 🧠 Arquitectura GPT: El Poder del Transformer
+## Arquitectura GPT: El Poder del Transformer
 
-**GPT (Generative Pre-trained Transformer)** es la arquitectura que revolucionó el procesamiento de lenguaje natural. Basada en el modelo **Transformer** (2017), representa un cambio fundamental en cómo las máquinas entienden el texto.
+> **"Attention is All You Need"**  
+> — Paper fundacional de Transformers (Google DeepMind, 2017)
+
+**GPT (Generative Pre-trained Transformer)** es la arquitectura que revolucionó el procesamiento de lenguaje natural. Basada en el modelo **Transformer** (2017), representa un cambio fundamental en cómo las máquinas entienden el lenguaje natural.
 
 ### Cómo Funciona GPT
 
 #### 1. **Arquitectura Transformer**
-A diferencia de las redes neuronales recurrentes (RNN) tradicionales, los Transformers procesan **todo el texto simultáneamente** en lugar de palabra por palabra, lo que permite:
+
+| Característica | RNN Tradicional | Transformer (GPT) |
+|---|---|---|
+| **Procesamiento** | Secuencial (palabra por palabra) | Paralelo (todo el texto simultáneamente) |
+| **Velocidad** | Lenta | Rápida |
+| **Dependencias largas** | Difícil | Excelente |
+| **Eficiencia** | Menor | Mayor |
+| **Ejemplo** | LSTM, GRU | GPT, BERT, Claude |
+
+**Ventajas clave:**
 - Mayor eficiencia computacional
 - Mejor manejo de dependencias a largo plazo
 - Procesamiento masivamente paralelo
@@ -47,8 +63,9 @@ A diferencia de las redes neuronales recurrentes (RNN) tradicionales, los Transf
 #### 2. **Self-Attention (Auto-Atención)**
 El mecanismo clave que permite al modelo "prestar atención" a diferentes partes del texto:
 
-```python
-# Ejemplo simplificado de self-attention
+> Esto es util en palabras como "hot dog" que no es lo mismo que "dog"; uno es una comida y otro un animal pero la IA no sabe lo que es un cada cosa a nivel de concepto, simplemente lo ha visto tantas veces que sabe diferenciarlo.
+
+```python {title="Simulación de Self-Attention"}
 def self_attention(query, key, value):
     """
     query: Lo que buscamos
@@ -67,8 +84,7 @@ def self_attention(query, key, value):
 
 ### Ejemplo: Procesamiento de Texto con GPT
 
-```python
-# Ejemplo conceptual de cómo GPT procesa texto
+```python {title="Pipeline de Procesamiento GPT"}
 def process_with_gpt(input_text):
     # 1. Tokenización
     tokens = tokenize(input_text)  # ["¿Qué", "es", "la", "IA", "?"]
@@ -88,9 +104,24 @@ def process_with_gpt(input_text):
     return next_token_probs
 ```
 
+**Flujo visual:**
+
+```yaml
+Pipeline de GPT:
+  Entrada: "¿Qué es la IA?"
+    ↓
+  Tokenización: ["¿Qué", "es", "la", "IA", "?"]
+    ↓
+  Embeddings + Posición
+    ↓
+  Capas Transformer (x12 o más)
+    ↓
+  Predicción: "La inteligencia artificial es..."
+```
+
 ---
 
-## 🎯 Mixture of Experts (MoE): Eficiencia a Gran Escala
+## Mixture of Experts (MoE): Eficiencia a Gran Escala
 
 La arquitectura **MoE (Mixture of Experts)** representa el siguiente nivel de eficiencia en modelos gigantes. En lugar de activar todos los parámetros del modelo, solo se activan los "expertos" relevantes para cada tarea.
 
@@ -121,18 +152,23 @@ Solo 2-4 expertos activos de N totales
 1. **Activación Dispersa (Sparse Activation)**
    - Solo 3-6% de los parámetros se activan por token
    - Ahorro masivo de computación y energía
+   - Reducción del **95.3%** en consumo energético vs modelos densos
 
-2. **Escalabilidad**
-   - Puedes añadir más expertos linealmente
-   - Escalando de 16 a 128 expertos: 8x capacidad con solo 2.1x costo
+2. **Escalabilidad Lineal**
+   - Puedes añadir más expertos sin crecimiento cuadrático en costo
+   - **Ejemplo**: Escalando de 16 a 128 expertos
+     - Capacidad: **8x** aumento
+     - Costo: Solo **2.1x** aumento
+   - Retorno: **3.8x** mejor eficiencia
 
-3. **Especialización**
+3. **Especialización por Dominio**
    - Cada experto se especializa en dominios específicos
    - Mayor precisión en tareas nicho
+   - **Precisión tareas especializadas**: 94.7% (MoE) vs 89.2% (dense)
 
 ---
 
-## 🚀 DeepSeek: MoE en Acción
+## DeepSeek: MoE en Acción
 
 **DeepSeek** es uno de los modelos más impresionantes que utiliza arquitectura MoE. Sus versiones más recientes demuestran el poder de esta aproximación.
 
@@ -160,24 +196,18 @@ Solo 2-4 expertos activos de N totales
 
 ### Comparación de Rendimiento
 
-```yaml
-DeepSeek-V3:
-  Parámetros Totales: 671B
-  Activos: 37B (5.5%)
-  Costo Entrenamiento: $5.5M USD
-  Precisión Tareas Especializadas: 94.7%
-
-Modelo Denso Equivalente:
-  Parámetros: 671B
-  Activos: 671B (100%)
-  Costo Estimado: >$100M USD
-  Precisión Tareas Especializadas: 89.2%
-```
+| Métrica | DeepSeek-V3 (MoE) | Modelo Denso Equivalente |
+|---|:---:|:---:|
+| **Parámetros Totales** | 671B | 671B |
+| **Parámetros Activos** | 37B (5.5%) | 671B (100%) |
+| **Costo Entrenamiento** | $5.5M USD | >$100M USD |
+| **Ahorro Energético** | 95.3% | 0% |
+| **Precisión Tareas Especializadas** | 94.7% | 89.2% |
+| **Tiempo de Inferencia** | Rápido | Lento |
 
 ### Ejemplo: Routing en DeepSeek
 
-```python
-# Simulación simplificada del routing MoE en DeepSeek
+```python {title="Simulación de Routing MoE en DeepSeek"}
 class DeepSeekMoE:
     def __init__(self, num_experts=128):
         self.experts = [Expert(i) for i in range(num_experts)]
@@ -203,7 +233,7 @@ class DeepSeekMoE:
 
 ---
 
-## 💻 Ejemplos Prácticos con Python
+## Ejemplos Prácticos con Python
 
 ### Chatbot Simple
 
@@ -262,7 +292,32 @@ print(f"\nOutliers detectados: {resultados['outliers']}")
 
 ---
 
-## 🎓 Conclusiones
+## Glosario Técnico
+
+**GPT (Generative Pre-trained Transformer)**  
+Modelo de lenguaje que predice texto basándose en patrones estadísticos aprendidos de billones de palabras.
+
+**Transformer**  
+Arquitectura de red neuronal (2017) que utiliza `self-attention` para procesar texto de forma paralela.
+
+**Self-Attention**  
+Mecanismo que permite al modelo ponderar la importancia de diferentes palabras en una secuencia.
+
+**MoE (Mixture of Experts)**  
+Arquitectura que activa solo un subconjunto de "expertos" especializados por cada tarea, logrando eficiencia masiva.
+
+**Gating Network**  
+Componente que decide qué expertos activar en una arquitectura MoE según la entrada.
+
+**Sparse Activation**  
+Técnica donde solo un pequeño porcentaje de los parámetros del modelo se activan por cada input.
+
+**RLHF (Reinforcement Learning from Human Feedback)**  
+Método de entrenamiento que ajusta modelos según retroalimentación humana para mejorar calidad de respuestas.
+
+---
+
+## Conclusiones
 
 La IA moderna ha evolucionado desde los conceptos teóricos de Turing hasta arquitecturas sofisticadas como GPT y MoE:
 
@@ -281,7 +336,7 @@ La IA ya está transformando cómo interactuamos con la tecnología, y su uso se
 
 ---
 
-> [!NOTE]
+> [!NOTA]
 > **¿Te interesa cómo el sistema educativo está manejando la IA?** Lee mi artículo de opinión: [IA en Educación: Una Crítica Necesaria](/posts/ia-educacion/)
 
 *¿Quieres aprender más sobre estos temas? Sígueme para más artículos técnicos sobre IA e infraestructura.* 📬
