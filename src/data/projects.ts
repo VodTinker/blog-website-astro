@@ -15,82 +15,79 @@ export interface Project {
 	endDate?: string;
 	featured?: boolean;
 	tags?: string[];
-	visitUrl?: string; // 添加前往项目链接字段
+	visitUrl?: string;
 }
 
 export const projectsData: Project[] = [
 	{
-		id: "mizuki-blog",
-		title: "Mizuki Blog Theme",
+		id: "portfolio-personal",
+		title: "Portfolio Personal",
 		description:
-			"Modern blog theme developed based on the Astro framework, supporting multilingual, dark mode, and responsive design features.",
+			"Mi portfolio personal desarrollado con tecnologías web modernas, donde muestro mis proyectos y habilidades como administrador de sistemas.",
 		image: "",
 		category: "web",
-		techStack: ["Astro", "TypeScript", "Tailwind CSS", "Svelte"],
+		techStack: ["HTML", "CSS", "JavaScript"],
 		status: "completed",
-		liveDemo: "https://blog.example.com",
-		sourceCode: "https://github.com/example/mizuki", // 更改为GitHub链接
-		visitUrl: "https://blog.example.com", // 添加前往项目链接
-		startDate: "2024-01-01",
-		endDate: "2024-06-01",
+		visitUrl: "https://vodtinker.dev",
+		startDate: "2025-12-01",
+		endDate: "2026-01-01",
 		featured: true,
-		tags: ["Blog", "Theme", "Open Source"],
+		tags: ["Portfolio", "Web", "Personal"],
 	},
 	{
-		id: "portfolio-website",
-		title: "Personal Portfolio",
+		id: "infraestructura-correo-dns",
+		title: "Infraestructura Autoalojada de Correo y DNS",
 		description:
-			"Personal portfolio website showcasing project experience and technical skills.",
+			"Infraestructura moderna de correo y DNS impulsada por Stalwart Mail Server (Rust). Incluye protocolos IMAP/IMAP/SMTP, DNS encriptado (DoH/DoQ), backups automatizados y seguridad avanzada con eficiencia óptima de memoria.",
 		image: "",
-		category: "web",
-		techStack: ["React", "Next.js", "TypeScript", "Framer Motion"],
+		category: "other",
+		techStack: ["Stalwart", "Rust", "IMAP", "SMTP", "DNS", "DoH", "DoQ", "Linux"],
 		status: "completed",
-		liveDemo: "https://portfolio.example.com",
-		sourceCode: "https://github.com/example/portfolio",
-		visitUrl: "https://portfolio.example.com", // 添加前往项目链接
-		startDate: "2023-09-01",
-		endDate: "2023-12-01",
+		startDate: "2024-06-01",
+		endDate: "2024-12-01",
 		featured: true,
-		tags: ["Portfolio", "React", "Animation"],
+		tags: ["Infraestructura", "Mail Server", "DNS", "Seguridad"],
 	},
 	{
-		id: "task-manager-app",
-		title: "Task Manager App",
+		id: "discord-bot-openai",
+		title: "Discord Bot con OpenAI",
 		description:
-			"Cross-platform task management application supporting team collaboration and project management.",
+			"Un bot de Discord que utiliza la API de OpenAI para proporcionar respuestas interactivas y mantener conversaciones con los usuarios.",
 		image: "",
-		category: "mobile",
-		techStack: ["React Native", "TypeScript", "Redux", "Firebase"],
-		status: "in-progress",
+		category: "other",
+		techStack: ["Python", "Discord.py", "OpenAI"],
+		status: "completed",
+		sourceCode: "https://github.com/VodTinker",
 		startDate: "2024-03-01",
-		tags: ["Mobile", "Productivity", "Team Collaboration"],
+		endDate: "2024-05-01",
+		featured: true,
+		tags: ["Bot", "Discord", "AI", "OpenAI"],
 	},
 	{
-		id: "data-visualization-tool",
-		title: "Data Visualization Tool",
+		id: "web-scraping-selenium",
+		title: "Web Scraping con Selenium",
 		description:
-			"Data visualization tool supporting multiple chart types and interactive analysis.",
+			"Scripts automatizados de web scraping utilizando Selenium para recopilar datos de diversos sitios web.",
 		image: "",
-		category: "web",
-		techStack: ["Vue.js", "D3.js", "TypeScript", "Node.js"],
+		category: "other",
+		techStack: ["Python", "Selenium", "Web Scraping"],
 		status: "completed",
-		liveDemo: "https://dataviz.example.com",
-		visitUrl: "https://dataviz.example.com", // 添加前往项目链接
-		startDate: "2023-06-01",
-		endDate: "2023-11-01",
-		tags: ["Data Visualization", "Analytics", "Charts"],
+		startDate: "2024-01-01",
+		endDate: "2024-02-01",
+		tags: ["Automatización", "Scraping", "Python"],
 	},
 	{
-		id: "e-commerce-platform",
-		title: "E-commerce Platform",
+		id: "automatizacion-notificaciones-aulas",
+		title: "Automatización de notificaciones de aulas virtuales",
 		description:
-			"Full-stack e-commerce platform including user management, product management, and order processing features.",
+			"Sistema automatizado con n8n que monitorea las aulas virtuales en busca de nuevas notificaciones y envía alertas instantáneas a Discord cuando se detectan actualizaciones.",
 		image: "",
-		category: "web",
-		techStack: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-		status: "planned",
-		startDate: "2024-07-01",
-		tags: ["E-commerce", "Full Stack", "Payment Integration"],
+		category: "other",
+		techStack: ["n8n", "Discord", "Webhooks", "Automatización"],
+		status: "completed",
+		startDate: "2023-09-01",
+		endDate: "2023-11-01",
+		tags: ["Automatización", "n8n", "Discord", "Notificaciones"],
 	},
 ];
 

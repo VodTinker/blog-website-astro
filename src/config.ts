@@ -20,7 +20,7 @@ import { LinkPreset } from "./types/config";
 
 // 定义站点语言
 const SITE_LANG = "es"; // Código de idioma: 'es' para español
-const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
+const SITE_TIMEZONE = 1; //设置你的网站时区 from -12 to 12 default in UTC+8
 export const siteConfig: SiteConfig = {
 	title: "VodTinker",
 	subtitle: "Blog personal y portfolio",
@@ -36,16 +36,16 @@ export const siteConfig: SiteConfig = {
 		fixed: false, // 对访问者隐藏主题色选择器
 	},
 
-	// 特色页面开关配置(关闭不在使用的页面有助于提升SEO,关闭后直接在顶部导航删除对应的页面就行)
+	// Configuración de páginas destacadas (desactivar páginas que no uses mejora el SEO)
 	featurePages: {
-		anime: true, // Anime - ACTIVADO
+		anime: false, // Anime - DESACTIVADO
 		diary: false, // Diario - DESACTIVADO
-		friends: true, // Amigos - ACTIVADO
+		friends: false, // Amigos - DESACTIVADO
 		projects: true, // Proyectos - ACTIVADO
 		skills: true, // Habilidades - ACTIVADO
-		timeline: true, // Timeline - ACTIVADO
-		albums: true, // Albumes - ACTIVADO
-		devices: true, // Dispositivos - ACTIVADO
+		timeline: false, // Timeline - DESACTIVADO
+		albums: false, // Álbumes - DESACTIVADO
+		devices: false, // Dispositivos - DESACTIVADO
 	},
 
 	// Configuración del título de navegación
@@ -253,68 +253,21 @@ export const navBarConfig: NavBarConfig = {
 				},
 			],
 		},
-		{
-			name: "Contenido",
-			url: "/content/",
-			icon: "material-symbols:person",
-			children: [
-				{
-					name: "Anime",
-					url: "/anime/",
-					icon: "material-symbols:movie",
-				},
 
-				{
-					name: "Galería",
-					url: "/albums/",
-					icon: "material-symbols:photo-library",
-				},
-				{
-					name: "Dispositivos",
-					url: "devices/",
-					icon: "material-symbols:devices",
-					external: false,
-				},
-			],
+		{
+			name: "Sobre Mí",
+			url: "/about/",
+			icon: "material-symbols:person",
 		},
 		{
-			name: "Información",
-			url: "/content/",
-			icon: "material-symbols:info",
-			children: [
-				{
-					name: "Sobre Mí",
-					url: "/about/",
-					icon: "material-symbols:person",
-				},
-				{
-					name: "Amigos",
-					url: "/friends/",
-					icon: "material-symbols:group",
-				},
-			],
+			name: "Proyectos",
+			url: "/projects/",
+			icon: "material-symbols:work",
 		},
 		{
-			name: "Más",
-			url: "#",
-			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "Proyectos",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Habilidades",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Línea de Tiempo",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
-				},
-			],
+			name: "Habilidades",
+			url: "/skills/",
+			icon: "material-symbols:psychology",
 		},
 	],
 };
@@ -586,7 +539,7 @@ export const sakuraConfig: SakuraConfig = {
 	},
 	opacity: {
 		min: 0.3, // 樱花最小不透明度
-		max: 0.9, // 樱花最大不透明度
+		max: 0.5, // 樱花最大不透明度
 	},
 	speed: {
 		horizontal: {
@@ -603,9 +556,9 @@ export const sakuraConfig: SakuraConfig = {
 	zIndex: 100, // 层级，确保樱花在合适的层级显示
 };
 
-// Pio 看板娘配置
+// Pio 看板娘配置	
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: true, // 启用看板娘
+	enable: false, // 看板娘 desactivada
 	models: ["/pio/models/pio/model.json"], // 默认模型路径
 	position: "left", // 默认位置在右侧
 	width: 280, // 默认宽度
