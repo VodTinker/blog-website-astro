@@ -8,14 +8,8 @@
 /* 导入渐变按钮样式 */
 @import "./gradient-buttons.css";
 /* 加密内容样式已移除，现在直接使用非加密文章的样式 */
-
-/* 导入 ZenMaruGothic-Medium 字体 */
-@font-face {
-  font-family: "ZenMaruGothic-Medium";
-  src: url("/assets/font/ZenMaruGothic-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
+/* Importar Playfair Display desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
 
 /* 导入 萝莉体 第二版 字体 */
 @font-face {
