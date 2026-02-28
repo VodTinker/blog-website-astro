@@ -656,7 +656,7 @@ const transparentClass = shouldEnableTransparency
             <div class="w-4/5 lg:w-3/4 text-center mb-0">
                 <div class="flex flex-col">
                     {siteConfig.banner.homeText?.title && (
-                        <h1 class="banner-title text-6xl lg:text-8xl text-white drop-shadow-lg mb-2 lg:mb-4">
+                        <h1 class="banner-title text-white drop-shadow-lg mb-2 lg:mb-4">
                             {siteConfig.banner.homeText.title}
                         </h1>
                     )}
@@ -811,9 +811,13 @@ const transparentClass = shouldEnableTransparency
 <style>
 /* Banner text styles */
 .banner-title {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-weight: 400;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     animation: fadeInUp 1s ease-out;
-    font-weight: bold;
 }
 
 .banner-subtitle {

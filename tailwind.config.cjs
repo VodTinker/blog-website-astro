@@ -6,8 +6,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Roboto", "sans-serif", ...defaultTheme.fontFamily.sans],
-				serif: ["Playfair Display", ...defaultTheme.fontFamily.serif],
+				sans: ["Inter", ...defaultTheme.fontFamily.sans],
+				serif: ["Instrument Serif", ...defaultTheme.fontFamily.serif],
 			},
 			screens: {
 				md: "1280px", // 原默认值: 768px, 增大后navbar会更早坍缩

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 /* 导入相册样式 */
 @import "./albums.css";
@@ -27,6 +27,21 @@
 /* 确保平滑滚动 */
 html {
   scroll-behavior: smooth;
+}
+
+/* Instrument Serif para todos los títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Inter para el cuerpo con legibilidad óptima */
+body {
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* 页面顶部渐变高光效果 */
