@@ -185,10 +185,10 @@ export const siteConfig: SiteConfig = {
 		asciiFont: {
 			// 英文字体 - 优先级最高
 			// 指定为英文字体则无论字体包含多大范围，都只会保留 ASCII 字符子集
-			fontFamily: "ZenMaruGothic-Medium",
+			fontFamily: "Playfair Display",
 			fontWeight: "400",
-			localFonts: ["ZenMaruGothic-Medium.ttf"],
-			enableCompress: false, // Deactivate for including accented characters of Spanish 
+			localFonts: [],
+			enableCompress: false, // Deactivate for including accented characters of Spanish
 		},
 		cjkFont: {
 			// 中日韩字体 - 作为回退字体
